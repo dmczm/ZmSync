@@ -95,7 +95,7 @@ namespace ZmSync
 	   			XmlReader reader = XmlReader.Create(xmlFilePath, settings);
 	   			xmlDoc.Load(reader);
 	//            doc.Load(xmlFilePath);
-	            //使用xpath表达式选择文档中所有的Factory子节点
+	            //使用xpath表达式选择文档中所有的Job子节点
 	            XmlNodeList factoryNodeList = xmlDoc.SelectNodes(@"/Config/Job");
 	            if (factoryNodeList != null)
 	            {
@@ -144,7 +144,7 @@ namespace ZmSync
    			xmlDoc.Load(reader);
    			int j=0;
 //            doc.Load(xmlFilePath);
-            //使用xpath表达式选择文档中所有的Factory子节点
+            //使用xpath表达式选择文档中所有的Job子节点
             XmlNodeList factoryNodeList = xmlDoc.SelectNodes(@"/Config/Job");
             if (factoryNodeList != null)
             {

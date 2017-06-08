@@ -231,7 +231,6 @@ namespace ZmSync
 			try {
 				StringBuilder result = new StringBuilder();
 				FtpWebRequest ftp ;
-				//ftp = CType(FtpWebRequest.Create(New Uri(ftpURI)), FtpWebRequest)
 //				ftp = (FtpWebRequest)WebRequest.Create(new Uri(string.Concat(new string[] {
 //					this.ftpServer,
 //					":",

@@ -19,7 +19,6 @@ using System.Threading.Tasks;
 using System.Globalization;
 using System.Xml;
 using System.Security.Cryptography;
-//using System.Runtime.InteropServices; 
 
 namespace ZmSync
 {
@@ -61,12 +60,8 @@ namespace ZmSync
 			DateTime datetime1 = DateTime.Now;
 //			ZhiLian.追加日志(Convert.ToDateTime(ddiStartTime,CultureInfo.InvariantCulture).ToString());
 //			ZhiLian.追加日志(Convert.ToDateTime(ddiStartTime,CultureInfo.InvariantCulture).AddMinutes(10).ToString());
-//			if (Convert.ToDateTime(datetime1.ToLongTimeString(),CultureInfo.InvariantCulture)
-//			    > Convert.ToDateTime(ddiStartTime,CultureInfo.InvariantCulture)
-//			    & Convert.ToDateTime(datetime1.ToLongTimeString(),CultureInfo.InvariantCulture)
-//			    <= Convert.ToDateTime(ddiStartTime,CultureInfo.InvariantCulture).AddMinutes(10)) {
-//			}
-			//          if (Convert.ToDateTime(datetime1.ToLongTimeString()) > Convert.ToDateTime("22:50:00") & Convert.ToDateTime(datetime1.ToLongTimeString()) < Convert.ToDateTime("22:59:59")) {
+//			if (Convert.ToDateTime(datetime1.ToLongTimeString()) > Convert.ToDateTime("22:50:00") 
+//				& Convert.ToDateTime(datetime1.ToLongTimeString()) < Convert.ToDateTime("22:59:59")) {
 			if (Convert.ToDateTime(datetime1.ToLongTimeString(),CultureInfo.InvariantCulture)
 			    > Convert.ToDateTime(ddiStartTime,CultureInfo.InvariantCulture)
 			    & Convert.ToDateTime(datetime1.ToLongTimeString(),CultureInfo.InvariantCulture)
@@ -78,11 +73,6 @@ namespace ZmSync
 //				ZhiLian.XmlSqlcommand();
 				ProjectLog1();
 			}
-//			if (Convert.ToDateTime(datetime1.ToLongTimeString(),CultureInfo.InvariantCulture)
-//			    > Convert.ToDateTime("12:10:00",CultureInfo.InvariantCulture)
-//			    & Convert.ToDateTime(datetime1.ToLongTimeString(),CultureInfo.InvariantCulture)
-//			    <= Convert.ToDateTime("12:20:00",CultureInfo.InvariantCulture)) {
-//			}
 //			if (!String.IsNullOrEmpty(rizhi)) {
 //				ZhiLian.追加日志(rizhi);
 //				rizhi = "";
@@ -91,12 +81,12 @@ namespace ZmSync
 		
 		public static void 新建导出目录()
 		{
-//			string[] parm = {
-//				Directory.GetCurrentDirectory() + "\\Log\\",
-//			};
-//			foreach(string path in parm){
-//				Directory.CreateDirectory(path);
-//			}
+			string[] parm = {
+				Directory.GetCurrentDirectory() + "\\Log\\",
+			};
+			foreach(string path in parm){
+				Directory.CreateDirectory(path);
+			}
 //			ZhiLian.XmlFactoryCreatefile();
 		}
 		
@@ -105,19 +95,6 @@ namespace ZmSync
 		/// </summary>
 		private static void AllTiqu()//(object state)
 		{
-//			int j = 1;
-//			while (ZhiLian.TestExcel()==false){
-//				//等待1秒重试
-//				Thread.Sleep(60);
-//				if(j<=2){
-//					ZhiLian.追加日志("正在尝试进行第" + j.ToString() + "次重新测试");
-//					j+=1;
-//				}else{
-////					break;
-//					return;
-//				}
-//			}
-		
 //			ZhiLian.XmlDdi();		
 			ZhiLian.XmlSync();
 			GC.Collect();			
@@ -130,13 +107,11 @@ namespace ZmSync
 		       sha.Clear();
 		       fs.Dispose();
 				StringBuilder returnValue = new StringBuilder();
-				
 				    //loop for each byte and add it to StringBuilder
 				    for (int i = 0; i < result.Length; i++)
 				    {
 				        returnValue.Append(result[i].ToString("X2"));
 				    }
-				
 				    // return hexadecimal string
 				    return returnValue.ToString();
 		     }
@@ -157,10 +132,8 @@ namespace ZmSync
 			this.textBox1.Text = "程序正在运行中，请勿关闭";
 //			this.textBox1.DeselectAll();
 			this.textBox1.SelectionStart = 0;
-            //			SetProcessDPIAware(); 
-            //			ZhiLian.getXmlDdiStartTime();
             //this.MaximizeBox = false;
-//            新建导出目录();
+            新建导出目录();
 			ZhiLian.追加日志("自动执行任务启动");
 			//日志串(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + " "  & "自动执行任务启动")
 			//shoudong = 0
@@ -359,10 +332,10 @@ namespace ZmSync
 //			System.Environment.OSVersion.VersionString;
 			this.textBox1.Text = "当前操作系统版本：" + osInfo +" "+xitong+" 本程序运行在"+jincheng
 				+ Environment.NewLine + "当前运行的.net版本：" + Environment.Version + Environment.NewLine 
-				+ "软件版本：1.0.0.0版 2017-05-17"+ Environment.NewLine
+				+ "软件版本：v1.0.0.0版 2017-05-17"+ Environment.NewLine
 				+ "操作系统版本支持win7及以上、server2008r2及以上"+ Environment.NewLine
 				+ "更新日志："+ Environment.NewLine
-				+ "1.0.0.0 设定自动同步任务，并且强制校验SHA1值，用以确认同步成功，可设定保留备份天数，超过备份天数自动删除"+ Environment.NewLine;
+				+ "v1.0.0.0 设定自动同步任务，并且强制校验SHA1值，用以确认同步成功，可设定保留备份天数，超过备份天数自动删除"+ Environment.NewLine;
 			this.textBox1.DeselectAll();
 //			取消全选
 			this.textBox1.SelectionStart = 0;
@@ -413,8 +386,6 @@ namespace ZmSync
 			textBox2.Visible=true;
 		}
 
-
-
 		/// <summary>
 		/// 保存Config
 		/// </summary>
@@ -427,7 +398,6 @@ namespace ZmSync
 //			ZhiLian.XmlFactoryCreatefile();
 		}
 
-
 		/// <summary>
 		/// 查看配置信息
 		/// </summary>
@@ -439,7 +409,7 @@ namespace ZmSync
 		}
 		
 		/// <summary>
-		/// 将所有Config中的Factory添加至toolStripComboBox1中
+		/// 将所有Config中的Job添加至toolStripComboBox1中
 		/// </summary>
 		private void XmlFactorynameadd()
         {
@@ -452,7 +422,7 @@ namespace ZmSync
 	   			XmlReader reader = XmlReader.Create(xmlFilePath, settings);
 	   			xmlDoc.Load(reader);
 	//            doc.Load(xmlFilePath);
-	            //使用xpath表达式选择文档中所有的Factory子节点
+	            //使用xpath表达式选择文档中所有的Job子节点
 	            XmlNodeList factoryNodeList = xmlDoc.SelectNodes(@"/Config/Job");
 	            if (factoryNodeList != null)
 	            {
@@ -492,7 +462,7 @@ namespace ZmSync
 		}
 
 		/// <summary>
-		/// 提取单户数据
+		/// 提取单个任务
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
@@ -521,19 +491,14 @@ namespace ZmSync
 		}
 
 		/// <summary>
-		/// 提取全部数据
+		/// 校验文件SHA1值
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
 		async void toolStripMenuItem1_Click(object sender, EventArgs e)
 		{
 //			ZhiLian.追加日志("手动提取任务开始");
-//			//SqlConnection.ClearAllPools()
-//			bool torf = false;
-//			torf = ZhiLian.Sqlservertest();
-//			SqlConnection.ClearAllPools();
-			Hidden();
-						
+			Hidden();		
 			OpenFileDialog openFileDialog1 = new OpenFileDialog();
 			// '设置文件类型
 //			openFileDialog1.Filter = "xlsx files(*.xlsx)|*.xlsx";
@@ -559,93 +524,6 @@ namespace ZmSync
             ProjectLog1();
 		}
 		
-		
-		public  static void   CopyDirectory(   string   sourceDirName,   string   destDirName,int delflag)   
-        {
-            try
-            {
-                if (!Directory.Exists(destDirName))
-                {
-                    Directory.CreateDirectory(destDirName);
-                    File.SetAttributes(destDirName, File.GetAttributes(sourceDirName));
-
-                }
-
-                if (destDirName[destDirName.Length - 1] != Path.DirectorySeparatorChar)
-                    destDirName = destDirName + Path.DirectorySeparatorChar;
-
-                string[] files = Directory.GetFiles(sourceDirName);
-                
-                foreach (string file in files)
-                {                      
-                    if(File.Exists(destDirName + Path.GetFileName(file)))
-//                    	continue;
-                    {
-                    	ZhiLian.追加日志(Path.GetFileName(file)+" 已进行过同步，本次无需同步");
-                    }else{       
-	                    
-	                    FileInfo fi = new FileInfo(file);
-	                    string filelength="";
-	                    if(fi.Length<1024*1024){
-	                    	filelength=fi.Length/1024+"KB";
-	                    }else if(fi.Length>=1024*1024 && fi.Length<1024*1024*1024){
-	                    	filelength=fi.Length/1024/1024+"MB";
-	                    }else if(fi.Length>=1024*1024*1024){
-	                    	filelength=fi.Length/1024/1024/1024+"GB";
-	                    }
-	                    ZhiLian.追加日志(Path.GetFileName(file)+" 准备进行源文件SHA1校验，文件大小为"+filelength);
-	                    string sha1old=GetFileSHA1(file);
-	                    ZhiLian.追加日志(Path.GetFileName(file)+" 源文件SHA1值为:"+sha1old);
-	                    ZhiLian.追加日志(Path.GetFileName(file)+" 文件同步开始");
-	//                    File.Copy(file, destDirName + Path.GetFileName(file),true);
-	                    File.Copy(file, destDirName + Path.GetFileName(file));
-	                    
-	                    ZhiLian.追加日志(Path.GetFileName(file)+" 文件同步成功，准备进行备份文件SHA1校验");
-	                    string sha1new=GetFileSHA1(destDirName + Path.GetFileName(file));
-	                    ZhiLian.追加日志(Path.GetFileName(file)+" 备份文件SHA1值为:"+sha1new);
-	                    if(sha1old==sha1new)
-	                    {
-	                    	ZhiLian.追加日志(Path.GetFileName(file)+" 文件校验成功");
-	                    }else{
-	                    	ZhiLian.追加日志(Path.GetFileName(file)+" 文件校验失败");
-	                    }
-	                    File.SetAttributes(destDirName + Path.GetFileName(file), FileAttributes.Normal);
-	//                    total++;
-                    }
-                }
-                
-				//超过标记天数删除修改日期最早的文件
-				while(Directory.GetFiles(destDirName).Length>delflag){
-					string[] destfiles = Directory.GetFiles(destDirName);
-	                if(destfiles.Length>delflag){
-	                	int small=0;
-	                	for(int i=1;i<destfiles.Length;i++){
-	                		FileInfo fi = new FileInfo(destfiles[small]);
-	                		FileInfo fi1 = new FileInfo(destfiles[i]);
-	                		
-	                		if(fi.LastWriteTime>fi1.LastWriteTime){
-	                			small=i;
-	                		}
-	                	}
-	                	ZhiLian.追加日志(Path.GetFileName(destfiles[small])+" 超过设置的备份文件数，自动删除日期最早的文件");
-	                	File.Delete(destfiles[small]);
-	                	
-	                }
-				}
-                string[] dirs = Directory.GetDirectories(sourceDirName);
-                foreach (string dir in dirs)
-                {
-                    CopyDirectory(dir, destDirName + Path.GetFileName(dir),delflag);
-                }
-            }
-            catch (Exception ex)
-            {
-                ZhiLian.追加日志(ex.Message);
-            }
-        }      
-
-
-
 		/// <summary>
 		/// 同步全部任务
 		/// </summary>

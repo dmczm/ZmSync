@@ -1,5 +1,4 @@
-﻿//using Microsoft.VisualBasic;
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
@@ -39,7 +38,6 @@ namespace ZmSync
         /// </summary>
 		private void InitializeComponent()
 		{
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
 			this.PictureBox1 = new System.Windows.Forms.PictureBox();
 			this.ProgressBar1 = new System.Windows.Forms.ProgressBar();
 			this.Label2 = new System.Windows.Forms.Label();
@@ -71,7 +69,6 @@ namespace ZmSync
 			// PictureBox1
 			// 
 			this.PictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.PictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("PictureBox1.Image")));
 			this.PictureBox1.Location = new System.Drawing.Point(0, 490);
 			this.PictureBox1.Name = "PictureBox1";
 			this.PictureBox1.Size = new System.Drawing.Size(243, 42);
