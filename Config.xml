@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Config>
+	<SysConfig>
+		<!--开始时间(单位秒)-->
+		<DdiStartTime>23:35:00</DdiStartTime>
+	</SysConfig>
+	<DataTrans>
+	</DataTrans>
+	<Job name="1备份">
+		<!--旧文件夹地址-->
+		<OldFile></OldFile>
+		<!--新文件夹地址-->
+		<NewFile></NewFile>
+		<!--超过天数自动删除(0表示不自动删除)-->
+		<Day>0</Day>
+	</Job>
+	<Job name="2备份">
+		<!--旧文件夹地址-->
+		<OldFile></OldFile>
+		<!--新文件夹地址-->
+		<NewFile></NewFile>
+		<!--超过天数自动删除(0表示不自动删除)-->
+		<Day>0</Day>
+	</Job>
+</Config>
