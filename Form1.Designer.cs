@@ -52,6 +52,7 @@ namespace ZmSync
 			this.toolStripMenuItem14 = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripMenuItem16 = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripComboBox1 = new System.Windows.Forms.ToolStripComboBox();
+			this.toolStripMenuItem12 = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuStrip2 = new System.Windows.Forms.MenuStrip();
 			this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripMenuItem();
@@ -113,7 +114,8 @@ namespace ZmSync
 			this.toolStripMenuItem13,
 			this.toolStripMenuItem14,
 			this.toolStripMenuItem16,
-			this.toolStripComboBox1});
+			this.toolStripComboBox1,
+			this.toolStripMenuItem12});
 			this.menuStrip1.Location = new System.Drawing.Point(0, 27);
 			this.menuStrip1.Name = "menuStrip1";
 			this.menuStrip1.Padding = new System.Windows.Forms.Padding(2, 2, 0, 2);
@@ -192,6 +194,13 @@ namespace ZmSync
 			this.toolStripComboBox1.Name = "toolStripComboBox1";
 			this.toolStripComboBox1.Size = new System.Drawing.Size(156, 27);
 			this.toolStripComboBox1.SelectedIndexChanged += new System.EventHandler(this.toolStripComboBox1_SelectedIndexChanged);
+			// 
+			// toolStripMenuItem12
+			// 
+			this.toolStripMenuItem12.Name = "toolStripMenuItem12";
+			this.toolStripMenuItem12.Size = new System.Drawing.Size(158, 23);
+			this.toolStripMenuItem12.Text = "校验全部文件";
+			this.toolStripMenuItem12.Click += new System.EventHandler(this.toolStripMenuItem12_Click);
 			// 
 			// menuStrip2
 			// 
@@ -337,5 +346,6 @@ namespace ZmSync
         private System.Windows.Forms.ToolStripComboBox toolStripComboBox1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem12;
     }
 }

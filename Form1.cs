@@ -49,6 +49,13 @@ namespace ZmSync
 			TimerCallback tcb = new TimerCallback(this.TimerMethod);
 			this.objTimer = new System.Threading.Timer(tcb, null, TimeSpan.FromMinutes(1), TimeSpan.FromMinutes(10));
 		}
+		private void Thread_Timer_Method(object o)   
+		{   
+//		　while(true){
+            	ProjectLog1();
+//            	Thread.Sleep(25);
+//            }  
+		}
 		public void TimerMethod(object state)
 		{
 			string TmpPath = Directory.GetCurrentDirectory();
@@ -118,6 +125,10 @@ namespace ZmSync
 
 		private void Form1_Load(object sender, EventArgs e)
 		{
+			string logoimagePath=Application.StartupPath + @"\logo.png";
+			if (System.IO.File.Exists(logoimagePath)){
+				this.PictureBox1.Image=System.Drawing.Image.FromFile(logoimagePath);
+			}
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             menuStrip1.BackColor = System.Drawing.SystemColors.ControlLightLight;
             menuStrip2.BackColor = System.Drawing.SystemColors.ControlLightLight;
@@ -332,10 +343,10 @@ namespace ZmSync
 //			System.Environment.OSVersion.VersionString;
 			this.textBox1.Text = "当前操作系统版本：" + osInfo +" "+xitong+" 本程序运行在"+jincheng
 				+ Environment.NewLine + "当前运行的.net版本：" + Environment.Version + Environment.NewLine 
-				+ "软件版本：v1.0.0.0版 2017-05-17"+ Environment.NewLine
 				+ "操作系统版本支持win7及以上、server2008r2及以上"+ Environment.NewLine
 				+ "更新日志："+ Environment.NewLine
-				+ "v1.0.0.0 设定自动同步任务，并且强制校验SHA1值，用以确认同步成功，可设定保留备份天数，超过备份天数自动删除"+ Environment.NewLine;
+				+ "v1.0 设定自动同步任务，并且强制校验SHA1值，用以确认同步成功，可设定保留备份天数，超过备份天数自动删除 2017-05-17"+ Environment.NewLine
+				+ "v1.1 新增全目录校验 2018-03-22"+ Environment.NewLine;
 			this.textBox1.DeselectAll();
 //			取消全选
 			this.textBox1.SelectionStart = 0;
@@ -453,6 +464,7 @@ namespace ZmSync
 			toolStripMenuItem1.Visible = true;
             toolStripMenuItem2.Visible = true;
             toolStripMenuItem3.Visible = true;
+            toolStripMenuItem12.Visible = true;
             toolStripComboBox1.Visible = true;
             toolStripComboBox1.MaxDropDownItems=12;
 		}
@@ -623,6 +635,24 @@ namespace ZmSync
 		void ToolStripMenuItem10Click(object sender, EventArgs e)
 		{
 	
+		}
+		async void toolStripMenuItem12_Click(object sender, EventArgs e)
+		{
+			ZhiLian.追加日志("校验任务开始");
+			Hidden();
+			System.Threading.Timer Thread_Time;  
+				//启动   
+				Thread_Time = new System.Threading.Timer(Thread_Timer_Method,null,TimeSpan.FromSeconds(0),TimeSpan.FromSeconds(1));
+				新建导出目录();
+				Task t=Task.Run(() => {ZhiLian.XmlCheck();
+				                } );
+				await t;
+				t.Dispose();
+				//停止   
+　				Thread_Time.Dispose();	
+			ZhiLian.追加日志("校验任务执行完毕");
+			ShowAll();
+            ProjectLog1();
 		}
     }
 }
