@@ -336,7 +336,7 @@ namespace ZmSync
                 string[] files = Directory.GetFiles(sourceDirName);              
                 foreach (string file in files)
                 {                      
-					if(File.Exists(destDirName + Path.GetFileName(file)))
+					if(!File.Exists(destDirName + Path.GetFileName(file)))
                     {
                     	ZhiLian.追加日志(Path.GetFileName(file)+" 备份目录无此文件，未进行校验");
                     	ZhiLian.追加日志(Directory.GetCurrentDirectory() + "\\Log\\CheckError" 

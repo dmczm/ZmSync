@@ -1,6 +1,6 @@
 using System;
-//using System.Collections;
-//using System.Collections.Generic;
+using System.Collections;
+using System.Collections.Generic;
 //using System.Data;
 //using System.Drawing;
 //using System.Diagnostics;
@@ -60,8 +60,18 @@ namespace ZmSync
 			string[] readText;
 			//str = File.ReadAllText(TmpPath)
 			if (System.IO.File.Exists(tmpPath)) {
-				readText = File.ReadAllLines(tmpPath);
-			
+//				readText = File.ReadAllLines(tmpPath);
+				using (FileStream fs = new FileStream(tmpPath, FileMode.Open, FileAccess.Read, FileShare.ReadWrite)){
+			    using (StreamReader sr = new StreamReader(fs))
+			    {
+			    	List<string> file = new List<string>();
+			        while (!sr.EndOfStream)
+			        {
+			        	file.Add(sr.ReadLine());
+			        }
+			        readText=file.ToArray();
+			    }
+				}
 	            if(readText.Length>1000)
 	            {
 	                for (int i = readText.Length - 1000; i <= readText.Length-1; i++)
